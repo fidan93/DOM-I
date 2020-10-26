@@ -39,4 +39,61 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+let logo2 = document.getElementById("cta-img");
+logo2.setAttribute('src',siteContent["cta"]["img-src"]);
+let logo3 = document.getElementById("middle-img");
+logo3.setAttribute('src',siteContent["main-content"]["middle-img-src"]);
+
+//nav items
+
+ let navItem = document.querySelectorAll("nav a");
+navItem.forEach((item,i) => {
+    item.style.color = "green";
+   return item.textContent = siteContent["nav"][`nav-item-${i+1}`]
+})
+let newI = document.createElement("a");
+newI.innerText = "Blog";
+newItem = document.createElement("a");
+newItem.innerText = "Portfolio"
+document.querySelector("nav").appendChild(newI);
+document.querySelector("nav").prepend(newItem);
+
+
+//[ ] Utilize `.appendChild()` and `.prepend()` to add two new items to the navigation system. You can call them whatever you want.
+//const secondCard = firstCard.cloneNode(true);
+// document.querySelector(".card-group").appendChild(secondCard);
+
+//cta items
+let ctaH1 = document.querySelector(".cta-text h1");
+ctaH1.innerHTML = "DOM <br> Is <br> Awesome";
+let ctaButton = document.querySelector(".cta-text button");
+ctaButton.textContent = siteContent["cta"]["button"];
+//main content
+let newarr = ["features","about","services","product","vision"];
+
+let mainH4 = document.querySelectorAll(".text-content h4");
+let mainP = document.querySelectorAll(".text-content p");
+
+mainH4.forEach((item,i) => {
+  return item.textContent = siteContent["main-content"][`${newarr[i]}-h4`];
+})
+
+mainP.forEach((item,i) => {
+  return item.textContent = siteContent["main-content"][`${newarr[i]}-content`];
+})
+
+//contact
+let contact = document.querySelector(".contact h4");
+contact.textContent = siteContent["contact"]["contact-h4"];
+
+let address = document.querySelector(".contact p");
+address.textContent = siteContent["contact"]["address"];
+let phone = address.nextElementSibling;
+phone.textContent = siteContent["contact"]["phone"];
+let email = phone.nextElementSibling;
+email.textContent = siteContent["contact"]["email"];
+
+//footer
+let copyright = document.querySelector("footer p");
+copyright.textContent = siteContent["footer"]["copyright"];
