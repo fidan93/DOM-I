@@ -49,7 +49,6 @@ logo3.setAttribute('src',siteContent["main-content"]["middle-img-src"]);
 
  let navItem = document.querySelectorAll("nav a");
 navItem.forEach((item,i) => {
-    item.style.color = "green";
    return item.textContent = siteContent["nav"][`nav-item-${i+1}`]
 })
 let newI = document.createElement("a");
@@ -58,11 +57,9 @@ newItem = document.createElement("a");
 newItem.innerText = "Portfolio"
 document.querySelector("nav").appendChild(newI);
 document.querySelector("nav").prepend(newItem);
-
-
-//[ ] Utilize `.appendChild()` and `.prepend()` to add two new items to the navigation system. You can call them whatever you want.
-//const secondCard = firstCard.cloneNode(true);
-// document.querySelector(".card-group").appendChild(secondCard);
+document.querySelectorAll("nav a").forEach(i =>{
+  return i.style.color = "green";
+})
 
 //cta items
 let ctaH1 = document.querySelector(".cta-text h1");
